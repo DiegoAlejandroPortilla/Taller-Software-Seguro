@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  api:
+    build: ./Microservicios
+    container_name: APIOwner
+    ports:
+      - '8001:8001'
+    networks:
+      - proyectoSS
+    environment:
+      - DB_PORT=5432
+      - DB_USER=postgres
+      - DB_PASSWORD=123456
+      - DB_DATABASE=ownerdb
+
+networks:
+  proyectoSS:
+    external: true
+    name: proyectoSS
